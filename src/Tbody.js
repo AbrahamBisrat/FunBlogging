@@ -4,7 +4,7 @@ function Tbody(incoming) {
   return (
     <div className="trial">
       <h1>Welcome {privateVar}</h1>
-      <h2>This is my custom component</h2>
+      <h2>This is my custom component item</h2>
     </div>
   );
 }
