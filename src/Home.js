@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import BlogList from "./BlogList";
 const p = (text) => console.log(text);
 
 const Home = () => {
@@ -22,28 +23,25 @@ const Home = () => {
       id: 3,
     },
   ]);
-  const more = () => {
-    p(blogs);
-    setBlogs.unshift({
-      title: "new",
-      body: "ldjf",
-      author: "meaw",
-      id: 4,
-    });
-    p(blogs);
+
+  const deleteHandler = (id) => {
+    setBlogs(blogs.filter((eachPost) => eachPost.id != id));
   };
+  useEffect(() => {
+    // run this every render of this component
+    // if you change state of the useState element here
+    // this fuction will run thus producing a loop until
+    // resources run out.
+    // careful not to make side-effects here
+    p("Use effect triggered!");
+  }, []);
   return (
     <div className="home">
-      {blogs.map((post) => (
-        <div className="blog-preview" key={post.id}>
-          <h2>{post.title}</h2>
-          <p>
-            <small>Written by: {post.author}</small>
-          </p>
-          <p>{post.body}</p>
-        </div>
-      ))}
-      <button onClick={more}>Add More</button>
+      <BlogList
+        blogs={blogs}
+        title={"All Blogs"}
+        deleteHandler={deleteHandler}
+      />
     </div>
   );
 };

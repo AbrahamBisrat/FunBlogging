@@ -1,0 +1,22 @@
+{
+    "blogs":[
+        {
+            "title": "Coding @ 3:20 am is fun",
+            "body": "lorem ipsum....",
+            "author": "bananas",
+            "id": 1
+        },
+        {
+            "title": "Should you learn React?",
+            "body": "lorem ipsum....",
+            "author": "potatos",
+            "id": 2
+        },
+        {
+            "title": "I would kill for a pizza now",
+            "body": "lorem ipsum....",
+            "author": "sushi",
+            "id": 3
+        }
+    ]
+}

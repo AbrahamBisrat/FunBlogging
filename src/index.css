@@ -52,7 +52,7 @@ a:hover {
 }
 .blog-preview {
   padding: 10px;
-  margin: 20px 0;
+  margin: 10px 0;
   border-bottom: 1px solid #fafafa;
   font-family: "Roboto";
 }
@@ -63,4 +63,15 @@ a:hover {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px;
+}
+.blog-preview button {
+  padding: 2px 5px;
+  border-radius: 5%;
+  font-size: 13px;
+  border: none;
+  background-color: #f1356d;
+  color: white;
+}
+.blog-preview button:hover {
+  box-shadow: 1px 1px 3px black;
 }
