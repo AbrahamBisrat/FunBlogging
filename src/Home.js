@@ -3,45 +3,35 @@ import BlogList from "./BlogList";
 const p = (text) => console.log(text);
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    {
-      title: "Coding @ 3:20 am is fun",
-      body: "lorem ipsum....",
-      author: "bananas",
-      id: 1,
-    },
-    {
-      title: "Should you learn React?",
-      body: "lorem ipsum....",
-      author: "potatos",
-      id: 2,
-    },
-    {
-      title: "I would kill for a pizza now",
-      body: "lorem ipsum....",
-      author: "sushi",
-      id: 3,
-    },
-  ]);
+  // json - server "api" endpoint
+  const uri = "http://localhost:4000/blogs";
+  const [blogs, setBlogs] = useState(null);
 
   const deleteHandler = (id) => {
     setBlogs(blogs.filter((eachPost) => eachPost.id != id));
   };
   useEffect(() => {
     // run this every render of this component
-    // if you change state of the useState element here
-    // this fuction will run thus producing a loop until
-    // resources run out.
-    // careful not to make side-effects here
     p("Use effect triggered!");
-  }, []);
+    fetch(uri)
+      .then((data) => data.json())
+      .then((parsedBlogArray) => {
+        p("data is ready");
+        p(parsedBlogArray);
+        setBlogs(parsedBlogArray);
+      })
+      .catch((err) => p(err));
+  }, []); // dependency for the useEffect to trigger can be adde to the array
+
   return (
     <div className="home">
-      <BlogList
-        blogs={blogs}
-        title={"All Blogs"}
-        deleteHandler={deleteHandler}
-      />
+      {blogs && (
+        <BlogList
+          blogs={blogs}
+          title={"All Blogs"}
+          deleteHandler={deleteHandler}
+        />
+      )}
     </div>
   );
 };
