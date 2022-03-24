@@ -5,7 +5,7 @@ const p = (text) => console.log(text);
 
 const Home = () => {
   const uri = "http://localhost:4000/blogs";
-  const { data, isPending, error } = useFetch(uri);
+  const { data: blogs, isPending, error } = useFetch(uri);
 
   const deleteHandler = (id) => {
     fetch(`${uri}/${id}`, {
@@ -24,9 +24,9 @@ const Home = () => {
     <div className="home">
       {error && <div className="error">{error}</div>}
       {isPending && <h2>Loading...</h2>}
-      {data && (
+      {blogs && (
         <BlogList
-          blogs={data}
+          blogs={blogs}
           title={"All Blogs"}
           deleteHandler={deleteHandler}
         />
