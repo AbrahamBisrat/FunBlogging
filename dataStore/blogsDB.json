@@ -17,6 +17,30 @@
       "body": "lorem ipsum....",
       "author": "sushi",
       "id": 3
+    },
+    {
+      "title": "Data sent from Postman",
+      "body": "because I am feeling lazy to write a form. lmfao",
+      "author": "The wise programmer",
+      "id": 4
+    },
+    {
+      "title": "why build html pages when you can just hack your way... ",
+      "body": "because I am feeling lazy to write a form. lmfao",
+      "author": "The wise programmer",
+      "id": 5
+    },
+    {
+      "title": "practice deleting on this",
+      "body": "because I am feeling lazy to write a form. lmfao",
+      "author": "The wise programmer",
+      "id": 6
+    },
+    {
+      "title": "practice deleting on this",
+      "body": "because I am feeling lazy to write a form. lmfao",
+      "author": "The wise programmer",
+      "id": 7
     }
   ]
 }
