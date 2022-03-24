@@ -1,4 +1,3 @@
-// import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 const p = (text) => console.log(text);
@@ -14,6 +13,9 @@ const Home = () => {
       .then(() => {
         // useFetch(uri);
         window.location.replace("/");
+        // return <Redirect to="/" />;
+        // const navigator = useNavigate();
+        // navigator("/");
       })
       .catch((err) => {
         p(err);
