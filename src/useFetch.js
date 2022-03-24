@@ -7,7 +7,9 @@ const useFetch = (url) => {
 
   // run this every render of this component
   useEffect(() => {
-    fetch(url)
+    const abortController = new AbortController();
+
+    fetch(url, { signal: abortController.signal })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Couldn't fetch the data for that resource");
@@ -20,9 +22,19 @@ const useFetch = (url) => {
         setError(null);
       })
       .catch((err) => {
-        setError(err.message);
-        setIsPending(false);
+        // { aborted fetch error }
+        if (err.name === "AbortError") {
+          console.log("Fetch Aborted");
+        } else {
+          setError(err.message);
+          setIsPending(false);
+        }
       });
+
+    // clean up effort, Abort Controller
+    // if in the middle of the asnc, user moved to other page,
+    // abort the started fetch.
+    return () => abortController.abort();
   }, [url]); // dependency for the useEffect to trigger can be adde to the array
 
   return { data, isPending, error };

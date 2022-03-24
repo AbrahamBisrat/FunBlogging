@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Create from "./Create";
 import "./index.css";
+import BlogDetails from "./BlogDetails";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/blogs" element={<Home />}></Route>
             <Route exact path="/create" element={<Create />}></Route>
+            <Route exact path="/blogs/:id" element={<BlogDetails />}></Route>
           </Routes>
         </div>
       </div>
