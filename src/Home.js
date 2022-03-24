@@ -1,56 +1,32 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 const p = (text) => console.log(text);
 
 const Home = () => {
-  // json - server "api" endpoint
-  const uri = "http://localhost:4000/blogss";
-  const [blogs, setBlogs] = useState(null);
-  const [isPending, setIsPending] = useState(true);
-  const [error, setError] = useState(null);
+  const uri = "http://localhost:4000/blogs";
+  const { data, isPending, error } = useFetch(uri);
 
   const deleteHandler = (id) => {
     fetch(`${uri}/${id}`, {
       method: "DELETE",
     })
       .then(() => {
-        fetchDBdata(uri);
+        // useFetch(uri);
+        window.location.replace("/");
       })
       .catch((err) => {
         p(err);
       });
   };
 
-  const fetchDBdata = (url) => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Couldn't fetch the data for that resource");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setIsPending(false);
-        setBlogs(data);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setIsPending(false);
-      });
-  };
-  useEffect(() => {
-    // run this every render of this component
-    p("Use effect triggered!");
-    fetchDBdata(uri);
-  }, []); // dependency for the useEffect to trigger can be adde to the array
-
   return (
     <div className="home">
-      {error && <div>{error}</div>}
+      {error && <div className="error">{error}</div>}
       {isPending && <h2>Loading...</h2>}
-      {blogs && (
+      {data && (
         <BlogList
-          blogs={blogs}
+          blogs={data}
           title={"All Blogs"}
           deleteHandler={deleteHandler}
         />

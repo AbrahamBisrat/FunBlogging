@@ -50,7 +50,8 @@ a:hover {
   color: #f1356d;
   text-shadow: 1px 1px 2px black;
 }
-.blog-preview {
+.blog-preview,
+.error {
   padding: 10px;
   margin: 10px 0;
   border-bottom: 1px solid #fafafa;
