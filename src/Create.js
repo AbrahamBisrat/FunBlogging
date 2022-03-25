@@ -60,9 +60,6 @@ const Create = () => {
             {isPending && <button disabled>Saving data . . .</button>}
           </div>
         </form>
-        <h1>{author}</h1>
-        <h1>{title}</h1>
-        <h1>{body}</h1>
       </div>
     </div>
   );
