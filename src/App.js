@@ -4,6 +4,7 @@ import Home from "./Home";
 import Create from "./Create";
 import "./index.css";
 import BlogDetails from "./BlogDetails";
+import NotFound from "./404";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/blogs" element={<Home />}></Route>
             <Route exact path="/create" element={<Create />}></Route>
             <Route exact path="/blogs/:id" element={<BlogDetails />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </div>
       </div>
