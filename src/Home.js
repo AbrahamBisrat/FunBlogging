@@ -1,10 +1,12 @@
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
+import { useNavigate } from "react-router-dom";
 const p = (text) => console.log(text);
 
 const Home = () => {
   const uri = "http://localhost:4000/blogs";
   const { data: blogs, isPending, error } = useFetch(uri);
+  const navigate = useNavigate();
 
   const deleteHandler = (id) => {
     fetch(`${uri}/${id}`, {
@@ -12,7 +14,8 @@ const Home = () => {
     })
       .then(() => {
         // useFetch(uri);
-        window.location.replace("/");
+        // window.location.replace("/");
+        navigate(0);
         // return <Redirect to="/" />;
         // const navigator = useNavigate();
         // navigator("/");

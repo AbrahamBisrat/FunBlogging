@@ -1,27 +1,68 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+const p = (text) => console.log(text);
+
 const Create = () => {
+  const [title, setTitle] = useState("Title");
+  const [body, setBody] = useState("What's on your mind...");
+  const [author, setAuthor] = useState("Mr. X");
+  const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newBlog = { author, title, body };
+    setIsPending(true);
+
+    fetch("http://localhost:4000/blogs/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBlog),
+    })
+      .then((res) => {
+        setIsPending(false);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
-      <h1>Create a new Blog</h1>
       <div className="create-form">
-        <form action="http://localhost:4000/blogs" method="POST">
+        <h1>Create a new Blog</h1>
+        <form onSubmit={handleSubmit}>
           <div className="field">
-            <input type="text" placeholder="Mr. X" name="author" required />
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              required
+            />
           </div>
           <div className="field">
-            <input type="text" placeholder="title" name="title" required />
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
           </div>
           <div className="field">
             <textarea
               type="text"
-              placeholder="What's on your mind? ../"
-              name="body"
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
               required
             />
           </div>
           <div className="field submit">
-            <button type="submit">Create</button>
+            {!isPending && <button type="submit">Create</button>}
+            {isPending && <button disabled>Saving data . . .</button>}
           </div>
         </form>
+        <h1>{author}</h1>
+        <h1>{title}</h1>
+        <h1>{body}</h1>
       </div>
     </div>
   );

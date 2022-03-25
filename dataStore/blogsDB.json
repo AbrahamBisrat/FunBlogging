@@ -43,12 +43,6 @@
       "id": 8
     },
     {
-      "author": "author name",
-      "title": "tudlu mf",
-      "body": "Nothing really, just wanted to check if it workds",
-      "id": 9
-    },
-    {
       "author": "author nameadfasd",
       "title": "tudlu mf",
       "body": "Nothing really, just wanted to check if it workds",
@@ -58,31 +52,7 @@
       "author": "author nameadfasd",
       "title": "tudlu mf",
       "body": "Nothing really, just wanted to check if it workds",
-      "id": 11
-    },
-    {
-      "author": "author nameadfasd",
-      "title": "tudlu mf",
-      "body": "Nothing really, just wanted to check if it workds",
       "id": 12
-    },
-    {
-      "author": "asdf",
-      "title": "asdf",
-      "body": "asdf",
-      "id": 13
-    },
-    {
-      "author": "asdf",
-      "title": "asdf",
-      "body": "asdf",
-      "id": 14
-    },
-    {
-      "author": "asdf",
-      "title": "asdf",
-      "body": "asdf",
-      "id": 15
     },
     {
       "author": "Eminem",
@@ -91,16 +61,16 @@
       "id": 16
     },
     {
-      "author": "dadsfasd",
-      "title": "asdfa",
-      "body": "asdfasdfasdf",
-      "id": 18
+      "author": "Changing languages needs some time....",
+      "title": "The wise programmer",
+      "body": "Changing languages takes some time, time to let the metabolism change course and adjust to the other way the language works. Usually, this depends on the familiarity with the language in question.",
+      "id": 17
     },
     {
-      "author": "asdf",
-      "title": "asdf",
-      "body": "afdasd",
-      "id": 20
+      "author": "Mr. Xsadfasdf",
+      "title": "Titleasdfasd",
+      "body": "What's on your mind...asdfasdfadsfasdf",
+      "id": 18
     }
   ]
 }
