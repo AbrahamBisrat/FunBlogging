@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const p = (text) => console.log(text);
+// const p = (text) => console.log(text);
 
 const Create = () => {
   const [title, setTitle] = useState("Title");

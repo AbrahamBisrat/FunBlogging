@@ -1,6 +1,20 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-const BlogList = ({ blogs, title, deleteHandler }) => {
+const BlogList = ({ blogs, title }) => {
+  const uri = "http://localhost:4000/blogs";
+  const navigate = useNavigate();
+  const deleteHandler = (id) => {
+    fetch(`${uri}/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        navigate(0);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="blog-list">
       <h1>{title}</h1>
